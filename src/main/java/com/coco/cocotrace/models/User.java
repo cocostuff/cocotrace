@@ -58,4 +58,5 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     @JsonBackReference
     private Set<Role> roles;
+
 }

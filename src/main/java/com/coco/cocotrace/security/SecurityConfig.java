@@ -36,6 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService)
 		.passwordEncoder(bCryptPasswordEncoder());
+		auth.inMemoryAuthentication().passwordEncoder(bCryptPasswordEncoder())
+				.withUser("admin")
+				.password(bCryptPasswordEncoder().encode("admin"))
+				.roles("ADMIN");
 	}
 	
 	protected void configure(HttpSecurity http) throws Exception{
@@ -46,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/**").hasAnyRole("ADMIN", "USER")
         .and()
         .formLogin()
-		// .loginPage("/login")
+		//.loginPage("/login")
 		.permitAll()
         .defaultSuccessUrl("/", true)
         .and()

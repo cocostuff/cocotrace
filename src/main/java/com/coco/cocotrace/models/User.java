@@ -2,20 +2,13 @@ package com.coco.cocotrace.models;
 
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -51,6 +44,10 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     @JsonBackReference
     private Set<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    private Set <Product> products;
 
     public int getId() {
         return id;

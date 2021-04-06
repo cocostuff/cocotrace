@@ -31,7 +31,6 @@ public class UserDetailsImpl implements UserDetails{
 	
 
 	public int getID() {
-		
 		return user.getId();
 	}
 

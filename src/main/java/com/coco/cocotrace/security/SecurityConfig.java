@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .formLogin()
 		//.loginPage("/login")
 		.permitAll()
-        .defaultSuccessUrl("/", true)
+        .defaultSuccessUrl("/home", true)
         .and()
         .logout().invalidateHttpSession(true)
         .clearAuthentication(true)

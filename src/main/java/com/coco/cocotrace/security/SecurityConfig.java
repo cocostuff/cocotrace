@@ -41,16 +41,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.password(bCryptPasswordEncoder().encode("admin"))
 				.roles("ADMIN");
 	}
-	
+
+	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.csrf().disable()		
 		.authorizeRequests()
-		.antMatchers("/h2-console/**", "/login", "/register").permitAll()
+		.antMatchers("/h2-console/**", "/login", "/register", "/home", "/lots").permitAll()
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.antMatchers("/**").hasAnyRole("ADMIN", "USER")
         .and()
         .formLogin()
-		//.loginPage("/login")
+		.loginPage("/login")
 		.permitAll()
         .defaultSuccessUrl("/home", true)
         .and()

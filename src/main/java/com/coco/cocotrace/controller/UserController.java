@@ -51,14 +51,12 @@ public class UserController {
         User u = userService.findByUsername(principal.getName());
         mv.addObject("user", u);
 
-        for (Role role: u.getRoles()) {
-            if(role.getName().equalsIgnoreCase("ROLE_ADMIN")){
+            if(u.getRole().getName().equalsIgnoreCase("ROLE_ADMIN")){
                 System.out.println("I'm an Admin !");
             }
-            if(role.getName().equalsIgnoreCase("ROLE_USER")) {
+            if(u.getRole().getName().equalsIgnoreCase("ROLE_USER")) {
                 System.out.println("I'm a User !");
             }
-        }
         return mv;
     }
 

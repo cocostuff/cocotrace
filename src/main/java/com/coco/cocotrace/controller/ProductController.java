@@ -10,8 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 public class ProductController {
@@ -36,7 +39,18 @@ public class ProductController {
 
         productService.save(product);
 
-        return "redirect:/productsList";
+        return "redirect:/productList";
     }
+
+
+    @RequestMapping(path = "/productList")
+    public ModelAndView userDashboard() {
+        ModelAndView mv = new ModelAndView("productList.jsp");
+        List<Product> products = productService.findAll();
+        mv.addObject("products", products);
+
+        return mv;
+    }
+
 
 }

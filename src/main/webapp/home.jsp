@@ -252,7 +252,7 @@
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link active" href="index.html"
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link active" href="/productList"
                                                  aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                             class="hide-menu">All Products</span></a></li>
 

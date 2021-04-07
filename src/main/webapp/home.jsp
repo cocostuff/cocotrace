@@ -9,13 +9,13 @@
 </head>
 </head>
 <body>
-    <h1>User Roles</h1>
+    <h1>User Role</h1>
 
-    <h3>Your roles</h3>
+    <h3>Your role</h3>
+        <ul>
+            <li>${user.role.name}<br/></li>
+        </ul>
 
-    <c:forEach var="role" items="${user.roles}">
-        <li><c:out value="${role.name}" /><br/></li>
-    </c:forEach>
 
     <a href="/logout">Logout</a>
 </body>

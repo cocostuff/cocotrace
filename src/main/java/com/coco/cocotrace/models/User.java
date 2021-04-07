@@ -41,9 +41,9 @@ public class User {
 
     private boolean active;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
-    private Set<Role> roles;
+    private Role role;
 
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
@@ -97,11 +97,11 @@ public class User {
         this.active = active;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

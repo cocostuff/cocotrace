@@ -8,7 +8,8 @@
     <title>Home page</title>
 </head>
 <body>
-<h1>Add Products</h1>
+<h1>Add new Product</h1>
+
 
 
 </body>

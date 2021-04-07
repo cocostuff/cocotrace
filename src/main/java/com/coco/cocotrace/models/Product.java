@@ -14,7 +14,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String description;
+    private String name;
 
     private String manufacturingOrigin;
 
@@ -35,7 +35,5 @@ public class Product {
     @OneToMany(mappedBy = "product")
     @JsonManagedReference
     private Set<Lot> lots;
-
-
 
 }

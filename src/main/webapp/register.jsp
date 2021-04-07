@@ -43,15 +43,14 @@
         </div>
     </spring:bind>
 
-    <spring:bind path="roles">
+    <spring:bind path="role">
         <div>
             Roles :<br/>
-            <form:checkbox path="roles" value="1" />
+            <form:radiobutton path="role" value="1" />
             ROLE_ADMIN<br/>
 
-            <form:checkbox path="roles" value="2" />
+            <form:radiobutton path="role" value="2" />
             ROLE_USER<br/>
-
         </div>
     </spring:bind>
 

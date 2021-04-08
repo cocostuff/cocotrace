@@ -22,4 +22,10 @@ public class LotServiceImpl implements LotService {
     public List<Lot> findAll() {
         return lotDao.findAll();
     }
+
+    @Override
+    public Lot findById(int id) {
+        return lotDao.findById(id);
+    }
+
 }

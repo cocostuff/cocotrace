@@ -17,7 +17,7 @@
         <div class="product-preview-container">
             <ul>
                 <li>Choose Product:
-                    Choose Product: <select name="pid">
+                    Choose Product: <select name="product">
                     	<c:forEach items="${products}" var="product" >
                     		<option value="${product.id}">${product.name}</option>
                     	</c:forEach>

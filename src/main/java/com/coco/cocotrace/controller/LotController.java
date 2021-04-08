@@ -5,6 +5,7 @@ import com.coco.cocotrace.models.Lot;
 import com.coco.cocotrace.models.Product;
 import com.coco.cocotrace.models.User;
 import com.coco.cocotrace.service.LotServiceImpl;
+import com.coco.cocotrace.service.ProductServiceImpl;
 import com.coco.cocotrace.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -27,6 +29,9 @@ public class LotController {
     private LotServiceImpl lotService;
 
     @Autowired
+    private ProductServiceImpl productService;
+
+    @Autowired
     private UserServiceImpl userService;
 
     @Autowired
@@ -38,6 +43,14 @@ public class LotController {
         List<Lot> lots = lotService.findAll();
         mv.addObject("lots", lots);
 
+        return mv;
+    }
+
+    @RequestMapping(path = "/lot")
+    public ModelAndView lotDetail(@RequestParam(value="id") int lotId) {
+        ModelAndView mv = new ModelAndView("lot.jsp");
+        Lot lot = lotService.findById(lotId);
+        mv.addObject("lot", lot);
         return mv;
     }
 

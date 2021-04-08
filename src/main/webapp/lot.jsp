@@ -9,10 +9,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Lot List</title>
+    <title>Lot Detail</title>
 </head>
 <body>
-<h2> Lots : </h2>
+<h2> Lot Detail </h2>
 
 <table>
     <tr>
@@ -22,7 +22,6 @@
         <th>Total Weight</th>
         <th>Sending Date</th>
     </tr>
-    <c:forEach items="${lots}" var="lot">
         <tr>
             <td>${lot.id}</td>
             <td>${lot.product.name}</td>
@@ -30,10 +29,6 @@
             <td>${lot.globalWeight}</td>
             <td>${lot.sendingDate}</td>
         </tr>
-
-    </c:forEach>
-
-    <a href="/addLot"> Add a new lot</a>
 
 </table>
 </body>

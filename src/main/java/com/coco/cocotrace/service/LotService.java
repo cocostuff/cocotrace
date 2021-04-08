@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface LotService {
     void save(Lot lot);
+    Lot findById(int id);
     List<Lot> findAll();
 }

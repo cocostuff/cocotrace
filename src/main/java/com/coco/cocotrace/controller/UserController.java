@@ -65,4 +65,10 @@ public class UserController {
         return "logout.jsp";
     }
 
+
+    @RequestMapping(path = "/login")
+    public String login() {
+        return "login.jsp";
+    }
+
 }

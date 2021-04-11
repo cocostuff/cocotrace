@@ -27,7 +27,6 @@
 
 <body>
 
-${SPRING_SECURITY_LAST_EXCEPTION.message}
 <div class="main-wrapper">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -71,6 +70,9 @@ ${SPRING_SECURITY_LAST_EXCEPTION.message}
                                         <label class="text-dark">Password:</label>
                                         <input class="form-control" type="password" name="password">
                                     </div>
+                                    <span class="invalid-feedback d-block mb-2">
+                                        ${SPRING_SECURITY_LAST_EXCEPTION.message}
+                                    </span>
                                 </div>
                             </div>
 

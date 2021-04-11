@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -38,4 +39,6 @@ public class Lot {
     public void setUser(User user) {
         this.user = user;
     }
+
+    private UUID qrCodeId;
 }

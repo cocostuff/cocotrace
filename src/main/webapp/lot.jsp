@@ -14,6 +14,7 @@
 <body>
 <h2> Lot Detail </h2>
 
+<img src="<c:url value="/images/QRCode.png" />" />
 <table>
     <tr>
         <th>Id</th>

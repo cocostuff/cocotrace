@@ -72,11 +72,12 @@
         <artifactId>mysql-connector-java</artifactId>
         <scope>runtime</scope>
     </dependency>
-    <dependency>
-        <groupId>org.postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <scope>runtime</scope>
-    </dependency>
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>9.4-1206-jdbc42</version>
+		<scope>runtime</scope>
+	</dependency>
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>

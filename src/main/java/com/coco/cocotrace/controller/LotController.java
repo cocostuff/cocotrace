@@ -1,5 +1,6 @@
 package com.coco.cocotrace.controller;
 
+import com.coco.cocotrace.dao.LotDao;
 import com.coco.cocotrace.dao.ProductDao;
 import com.coco.cocotrace.models.Lot;
 import com.coco.cocotrace.models.Product;
@@ -11,10 +12,7 @@ import com.coco.cocotrace.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -39,6 +37,9 @@ public class LotController {
     @Autowired
     ProductDao productDao;
 
+    @Autowired
+    LotDao lotDao;
+
     private static final String QR_CODE_IMAGE_PATH = "./src/main/webapp/images/";
 
     @RequestMapping(path = "/lots")
@@ -58,6 +59,12 @@ public class LotController {
         return mv;
     }
 
+    @RequestMapping(path = "/deleteLot", method = RequestMethod.GET)
+    public String deleteLot(@RequestParam(value="id") int lotId) {
+        lotDao.deleteById(lotId);
+        return "redirect:/lots";
+    }
+
     @RequestMapping(path = "/addLot")
     public ModelAndView create(Model model) {
         model.addAttribute("lot", new Lot());
@@ -71,6 +78,32 @@ public class LotController {
 
         mv.setViewName("addLot.jsp");
         return mv;
+    }
+
+    // Updating lot page
+    @RequestMapping(path = "/updateLot")
+    public ModelAndView update(@RequestParam(value="id") int lotId, Model model) {
+        Lot lot = lotService.findById(lotId);
+
+        model.addAttribute("lot", lot);
+
+        List<Product> products = productDao.findAll();
+        Map<String, Object> allObjectsMap = new HashMap<String, Object>();
+        allObjectsMap.put("products", products);
+
+        ModelAndView mv = new ModelAndView();
+        mv.addAllObjects(allObjectsMap);
+
+        mv.setViewName("updateLot.jsp");
+        return mv;
+    }
+
+    @RequestMapping(value = "/updateLot", method = RequestMethod.POST)
+    public String updateLot(@ModelAttribute("lot") Lot lot, Principal principal) {
+        User u = userService.findByUsername(principal.getName());
+        lot.setUser(u);
+        lotService.save(lot);
+        return "redirect:/lot?id=" + lot.getId();
     }
 
 

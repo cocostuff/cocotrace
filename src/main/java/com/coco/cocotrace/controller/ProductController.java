@@ -31,6 +31,15 @@ public class ProductController {
         return "product.jsp";
     }
 
+    // Updating lot page
+    @RequestMapping(path = "/updateProduct", method= RequestMethod.GET)
+    public ModelAndView update(Model model) {
+        ModelAndView mv = new ModelAndView();
+
+        mv.setViewName("/updateProduct");
+        return mv;
+    }
+
     @RequestMapping(value = { "/addProduct" }, method = RequestMethod.POST)
     public String shoppingCartUpdateQty(Model model, Principal principal, @ModelAttribute("product") Product product) {
 

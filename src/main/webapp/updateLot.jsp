@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +15,14 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Cocotrace - A Product Traceability App</title>
+    <title>Cocotrace - Update Lot</title>
     <!-- Custom CSS -->
     <link href="https://technext.github.io/adminmart/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="https://technext.github.io/adminmart/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Custom CSS -->
+    <link href="https://technext.github.io/adminmart/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+
     <link href="https://technext.github.io/adminmart/dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,7 +31,10 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
+
 <body>
+
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
@@ -60,9 +66,9 @@
                     <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="https://lh5.googleusercontent.com/OW_AzSkBJg9IT_3-bQvkJAcWhDxzDV1qO5AbTSXGflrI4oObcOVCmhBuU9R-_3Ae4Xe9jAsw6T63Bw=w1366-h657" alt="homepage" class="dark-logo" width="186" height="auto"/>
+                            <img src="../assets/images/logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
                             <!-- Light Logo icon -->
-                            <img src="https://lh5.googleusercontent.com/OW_AzSkBJg9IT_3-bQvkJAcWhDxzDV1qO5AbTSXGflrI4oObcOVCmhBuU9R-_3Ae4Xe9jAsw6T63Bw=w1366-h657" alt="homepage" class="light-logo" width="186" height="auto"/>
+                            <img src="../assets/images/logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
                         </b>
                         <!--End Logo icon -->
                     </a>
@@ -104,7 +110,7 @@
                                             <div class="btn btn-danger rounded-circle btn-circle"><i
                                                     data-feather="airplay" class="text-white"></i></div>
                                             <div class="w-75 d-inline-block v-middle pl-2">
-                                                <h6 class="message-title mb-0 mt-1">Luanch Admin</h6>
+                                                <h6 class="message-title mb-0 mt-1">Launch Admin</h6>
                                                 <span class="font-12 text-nowrap d-block text-muted">Just see
                                                         the my new
                                                         admin!</span>
@@ -213,24 +219,22 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <img src="https://technext.github.io/adminmart/assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
+                            <img src="../assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
                                  width="40">
                             <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
-                                    class="text-dark">${user.username}</span> <i data-feather="chevron-down"
-                                                                                 class="svg-icon"></i></span>
+                                    class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
+                                                                          class="svg-icon"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                             <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
                                                                                   class="svg-icon mr-2 ml-1"></i>
-                                My Role: ${user.role.name}
-
-                            </a>
+                                My Profile</a>
                             <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
                                                                                   class="svg-icon mr-2 ml-1"></i>
                                 Account Setting</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/logout"><i data-feather="power"
-                                                                       class="svg-icon mr-2 ml-1"></i>
+                            <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                                                                                  class="svg-icon mr-2 ml-1"></i>
                                 Logout</a>
                         </div>
                     </li>
@@ -253,7 +257,7 @@
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link active" href="/productList"
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="home"
                                                  aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                             class="hide-menu">All Products</span></a></li>
 
@@ -272,7 +276,9 @@
                     <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
                                                  aria-expanded="false"><i data-feather="user" class="feather-icon"></i><span
                             class="hide-menu">Profile</span></a></li>
-
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
+                                                 aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
+                            class="hide-menu">Log out</span></a></li>
 
                 </ul>
             </nav>
@@ -293,7 +299,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-7 align-self-center">
-                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Add New Lot</h3>
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Lot Detail</h3>
                     <!-- <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
@@ -303,6 +309,7 @@
                         </nav>
                     </div> -->
                 </div>
+
             </div>
         </div>
         <!-- ============================================================== -->
@@ -318,96 +325,95 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <form:form method="POST" modelAttribute="lot" action="/addLot">
 
-                                        <h5 class="card-subtitle">Choose Product:</h5>
-                                        <div class="form-group mb-4">
-                                             <select class="custom-select mr-sm-2" name="product">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+
+                                    <img src="<c:url value="/images/${lot.qrCodeId}.png" />" />
+                                    <form:form method="POST" modelAttribute="lot" action="/updateLot">
+                                    <table id="zero_config" class="table no-wrap">
+                                    <form:input path="qrCodeId" type="hidden" value="${lot.qrCodeId}"/>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>Total Weight</th>
+                                            <th>Sending Date</th>
+                                        </tr>
+                                            <tr>
+                                                <td>${lot.id}<form:input path="id" type="hidden" value="${lot.id}"/></td>
+                                                <td>
+                                                <select name="product">
                                                     <c:forEach items="${products}" var="product" >
-                                                        <option value="${product.id}">${product.name}</option>
+                                                    <option value="${product.id}">${product.name}</option>
                                                     </c:forEach>
-                                             </select> <br/>
-
-                                        </div>
-
-                                        <h5 class="card-subtitle">Total Weight:</h5>
-                                        <div class="form-group mb-4">
-                                            <form:input class="form-control"  path="globalWeight"/>
-                                        </div>
-
-                                        <h5 class="card-subtitle">Quantity:</h5>
-                                        <div class="form-group mb-4">
-                                            <form:input class="form-control"  path="quantity"/>
-                                        </div>
-
-                                        <h5 class="card-subtitle">Sending Date:</h5>
-                                        <div class="form-group mb-4">
-                                            <form:input class="form-control"  path="sendingDate" type="date"/>
-                                        </div>
-
-
-                                        <input class="button-update-sc btn btn-info" type="submit" value="Add Lot" />
-
+                                                    </select>
+                                                </td>
+                                                <td><form:input path="quantity" value="${lot.quantity}"/></td>
+                                                <td><form:input path="globalWeight" value="${lot.globalWeight}"/></td>
+                                                <td><form:input path="sendingDate" type="date" value="${lot.sendingDateString}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="button-update-sc" type="submit" value="Save Product" /></td>
+                                            </tr>
+                                    </table>
                                     </form:form>
-
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
+                    </div>
+
+                </div>
+                <!-- *************************************************************** -->
+                <!-- End Create New Lot Form -->
+                <!-- *************************************************************** -->
             </div>
-            <!-- *************************************************************** -->
-            <!-- End Create New Lot Form -->
-            <!-- *************************************************************** -->
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-
-        <!-- ============================================================== -->
-        <!-- End footer -->
+        <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
+    <!-- End Wrapper -->
     <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="https://technext.github.io/adminmart/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="https://technext.github.io/adminmart/dist/js/app-style-switcher.js"></script>
+    <script src="https://technext.github.io/adminmart/dist/js/feather.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://technext.github.io/adminmart/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="https://technext.github.io/adminmart/dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/c3/d3.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/c3/c3.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="https://technext.github.io/adminmart/dist/js/pages/dashboards/dashboard1.min.js"></script>
+
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="https://technext.github.io/adminmart/dist/js/pages/datatable/datatable-basic.init.js"></script>
 </div>
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
-
-<script src="https://technext.github.io/adminmart/assets/libs/jquery/dist/jquery.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/libs/popper.js/dist/umd/popper.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- apps -->
-<!-- apps -->
-<script src="https://technext.github.io/adminmart/dist/js/app-style-switcher.js"></script>
-<script src="https://technext.github.io/adminmart/dist/js/feather.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-<script src="https://technext.github.io/adminmart/dist/js/sidebarmenu.js"></script>
-<!--Custom JavaScript -->
-<script src="https://technext.github.io/adminmart/dist/js/custom.min.js"></script>
-<!--This page JavaScript -->
-<script src="https://technext.github.io/adminmart/assets/extra-libs/c3/d3.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/extra-libs/c3/c3.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/libs/chartist/dist/chartist.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
-<script src="https://technext.github.io/adminmart/dist/js/pages/dashboards/dashboard1.min.js"></script>
-
 
 </body>
 </html>

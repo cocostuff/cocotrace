@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
@@ -38,6 +40,17 @@ public class Lot {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Transient
+    public String sendingDateString;
+
+    public String getSendingDateString() {
+        return sendingDateString;
+    }
+
+    public void setSendingDateString(String sendingDateString) {
+        this.sendingDateString = sendingDateString;
     }
 
     private UUID qrCodeId;

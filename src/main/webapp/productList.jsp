@@ -63,7 +63,7 @@
                 <!-- ============================================================== -->
                 <div class="navbar-brand">
                     <!-- Logo icon -->
-                    <a href="index.html">
+                    <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
                             <img src="../assets/images/logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
@@ -257,11 +257,11 @@
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="productList"
                                                  aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                             class="hide-menu">All Products</span></a></li>
 
-                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="lots.html"
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="lots"
                                                  aria-expanded="false"><i data-feather="list" class="feather-icon"></i><span
                             class="hide-menu">Lots</span></a></li>
 

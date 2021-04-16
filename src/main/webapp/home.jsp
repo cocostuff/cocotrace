@@ -56,7 +56,7 @@
                 <!-- ============================================================== -->
                 <div class="navbar-brand">
                     <!-- Logo icon -->
-                    <a href="index.html">
+                    <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
                             <img src="https://lh5.googleusercontent.com/OW_AzSkBJg9IT_3-bQvkJAcWhDxzDV1qO5AbTSXGflrI4oObcOVCmhBuU9R-_3Ae4Xe9jAsw6T63Bw=w1366-h657" alt="homepage" class="dark-logo" width="186" height="auto"/>
@@ -296,7 +296,7 @@
                     <!-- <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a>
+                                <li class="breadcrumb-item"><a href="/home">Dashboard</a>
                                 </li>
                             </ol>
                         </nav>

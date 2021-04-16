@@ -3,13 +3,12 @@ package com.coco.cocotrace.service;
 import com.coco.cocotrace.dao.LotDao;
 import com.coco.cocotrace.models.Lot;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class LotServiceImpl implements LotService {
@@ -34,6 +33,11 @@ public class LotServiceImpl implements LotService {
     @Override
     public Lot findById(int id) {
         return lotDao.findById(id);
+    }
+
+    @Override
+    public Lot findByQrCodeId(UUID qrCodeId) {
+        return lotDao.findByQrCodeId(qrCodeId);
     }
 
 }

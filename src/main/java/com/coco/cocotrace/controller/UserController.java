@@ -45,7 +45,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(path = "/home")
+    @RequestMapping(value={"", "/", "home"})
     public ModelAndView userDashboard(Principal principal) {
         ModelAndView mv = new ModelAndView("home.jsp");
         User u = userService.findByUsername(principal.getName());

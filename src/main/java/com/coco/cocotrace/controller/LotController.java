@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -128,14 +127,29 @@ public class LotController {
             System.out.println(e);
         }
 
-//        Map<String, Object> allObjectsMap = new HashMap<String, Object>();
-//        allObjectsMap.put("lot", lot);
-//        ModelAndView mv = new ModelAndView();
-//        mv.addAllObjects(allObjectsMap);
-
         return "redirect:/lot?id=" + lot.getId();
     }
 
+    // REST API for future chatbot usage
+    @ResponseBody
+    @GetMapping("/api/v1/lot")
+    public List<Lot> getAllLots() {
+        return lotDao.findAll();
+    }
+
+    @ResponseBody
+    @GetMapping("/api/v1/lot/{id}")
+    public Lot getLot(@PathVariable int id) {
+        Lot lot = lotDao.findById(id);
+        return lot;
+    }
+
+    @ResponseBody
+    @GetMapping("/api/v1/lot/qr/{qrCodeId}")
+    public Lot getLotByQrCode(@PathVariable String qrCodeId) {
+        Lot lot = lotDao.findByQrCodeId(UUID.fromString(qrCodeId));
+        return lot;
+    }
 
 
 }

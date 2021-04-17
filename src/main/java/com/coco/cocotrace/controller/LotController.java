@@ -10,11 +10,13 @@ import com.coco.cocotrace.service.LotServiceImpl;
 import com.coco.cocotrace.service.ProductServiceImpl;
 import com.coco.cocotrace.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +40,9 @@ public class LotController {
 
     @Autowired
     LotDao lotDao;
+
+    @Value(value = "${spring.application.url}")
+    String url;
 
     private static final String QR_CODE_IMAGE_PATH = "./src/main/webapp/images/";
 
@@ -107,7 +112,7 @@ public class LotController {
 
 
     @RequestMapping(value = { "/addLot" }, method = RequestMethod.POST)
-    public String createLot(Model model, Principal principal, @ModelAttribute("lot") Lot lot) {
+    public String createLot(Model model, Principal principal, @ModelAttribute("lot") Lot lot, HttpServletRequest request) {
 
         User u = userService.findByUsername(principal.getName());
         lot.setUser(u);
@@ -116,13 +121,17 @@ public class LotController {
         lot.setQrCodeId(qrId);
         lotService.save(lot);
 
+        String domain = System.getenv().get("APP_URL");
+        if (domain == null) {
+            domain = request.getScheme() + "://" + url;
+        }
+
         try {
             QRCodeGenerator.generateQRCodeImage(
-                    "http://localhost:8082/lot?id="  + lot.getId(),
+                    domain + "/lot?id="  + lot.getId(),
                     400,
                     400,
                     QR_CODE_IMAGE_PATH + qrId + ".png");
-            System.out.println("Created a new lot with URL: " + "http://localhost:8082/lot?id="  + lot.getId());
         } catch (Exception e) {
             System.out.println(e);
         }

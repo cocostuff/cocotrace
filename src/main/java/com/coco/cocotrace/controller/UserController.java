@@ -31,7 +31,6 @@ public class UserController {
         return "register.jsp";
     }
 
-
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     public String addUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);

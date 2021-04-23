@@ -13,11 +13,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/callback")
+@RequestMapping(value = "/callback")
 @LineMessageHandler
 public class LineBotController {
     private final Logger log = LoggerFactory.getLogger(CocotraceApplication.class);
+
+    @EventMapping
+    public Message handleTextMessage(MessageEvent<TextMessageContent> e) {
+        System.out.println("event: " + e);
+        TextMessageContent message = e.getMessage();
+        return new TextMessage(message.getText());
+    }
 
     @EventMapping
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {

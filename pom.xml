@@ -118,7 +118,23 @@
 			<artifactId>javase</artifactId>
 			<version>3.4.1</version>
 		</dependency>
-</dependencies>
+		<dependency>
+			<groupId>com.linecorp.bot</groupId>
+			<artifactId>line-bot-spring-boot</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.linecorp.bot/line-bot-api-client -->
+		<dependency>
+			<groupId>com.linecorp.bot</groupId>
+			<artifactId>line-bot-api-client</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.retrofit2</groupId>
+			<artifactId>retrofit</artifactId>
+			<version>2.7.2</version>
+		</dependency>
+	</dependencies>
 <!--	<dependencyManagement>-->
 <!--		<dependencies>-->
 <!--			<dependency>-->

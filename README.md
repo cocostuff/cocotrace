@@ -1,11 +1,28 @@
 # CocoTrace: A Product Traceability App
 
+## Table of Contents
 
-# PostgreSQL set up
+1. [Table of Contents](#Table-of-Contents)
+1. [Team Members](#team-members)
+1. [About the project](#about-the-project)
+1. [PostgreSQL set up](#postgresql-set-up)
 
-- Install postgreSQL 
+## Team Members
 
-In the terminal : 
+1. Titouan Le Mao
+2. Cedric Le Mercier
+3. Urusha Rajkarnikar
+4. Htoo Lwin
+
+## About the project
+
+TBD
+
+## PostgreSQL set up
+
+- Install postgreSQL for development
+
+In the terminal :
 - sudo -u postgres createuser admin
 - sudo -u postgres createdb cocotrace
 - sudo -u postgres psql

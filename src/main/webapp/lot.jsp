@@ -331,7 +331,30 @@
                         <div class="card-body">
                             <div class="table-responsive">
 
-                                    <img src="<c:url value="/images/${lot.qrCodeId}.png" />" />
+                            <div style="display: flex; flex: wrap;">
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="<c:url value="/images/${lot.qrCodeId}.png" />" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">QR Code</h4>
+                                        <p class="card-text">${lot.qrCodeId}</p>
+                                    </div>
+                                </div>
+                                <!-- Card -->
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="${lot.imageUrl}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Image of Lot</h4>
+                                        <p class="card-text">${lot.product.name}</p>
+                                    </div>
+                                </div>
+                                <!-- Card -->
+                            </div>
+                            </div>
                                     <table id="zero_config" class="table no-wrap">
                                         <tr>
                                             <th>Id</th>
@@ -339,7 +362,6 @@
                                             <th>Quantity</th>
                                             <th>Total Weight</th>
                                             <th>Sending Date</th>
-                                            <th>QR Id</th>
                                             <th>Actions</th>
                                         </tr>
                                         <tr>
@@ -348,7 +370,6 @@
                                             <td>${lot.quantity}</td>
                                             <td>${lot.globalWeight}</td>
                                             <td>${lot.sendingDate}</td>
-                                            <td>${lot.qrCodeId}</td>
                                             <td>
                                             <div style="display: inline-block">
                                             <a href="/updateLot?id=${lot.id}" style="margin-right: 10px;">Update Lot</a>

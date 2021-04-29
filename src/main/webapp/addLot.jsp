@@ -324,6 +324,11 @@
                                 <div class="card-body">
                                     <form:form method="POST" modelAttribute="lot" action="/addLot">
 
+                                    <h5 class="card-subtitle">Image:</h5>
+                                    <div class="form-group mb-4">
+                                        <form:input class="form-control"  path="imageUrl"/>
+                                    </div>
+
                                         <h5 class="card-subtitle">Choose Product:</h5>
                                         <div class="form-group mb-4">
                                              <select class="custom-select mr-sm-2" name="product">

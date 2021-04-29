@@ -22,6 +22,8 @@ public class Product {
 
     private String name;
 
+    private String imageUrl;
+
     private String manufacturingOrigin;
 
     @Column(nullable = false)

@@ -67,9 +67,9 @@
                     <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
                         </b>
                         <!--End Logo icon -->
                     </a>
@@ -331,7 +331,30 @@
                         <div class="card-body">
                             <div class="table-responsive">
 
-                                    <img src="<c:url value="/images/${lot.qrCodeId}.png" />" />
+                            <div style="display: flex; flex: wrap;">
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="<c:url value="/images/${lot.qrCodeId}.png" />" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">QR Code</h4>
+                                        <p class="card-text">${lot.qrCodeId}</p>
+                                    </div>
+                                </div>
+                                <!-- Card -->
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="${lot.imageUrl}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Image of Lot</h4>
+                                        <p class="card-text">${lot.product.name}</p>
+                                    </div>
+                                </div>
+                                <!-- Card -->
+                            </div>
+                            </div>
                                     <table id="zero_config" class="table no-wrap">
                                         <tr>
                                             <th>Id</th>
@@ -340,7 +363,6 @@
                                             <th>Total Weight</th>
                                             <th>Sending Date</th>
                                             <th>Actions</th>
-                                            <th> </th>
                                         </tr>
                                         <tr>
                                             <td>${lot.id}</td>
@@ -348,8 +370,12 @@
                                             <td>${lot.quantity}</td>
                                             <td>${lot.globalWeight}</td>
                                             <td>${lot.sendingDate}</td>
-                                            <td><a href="/updateLot?id=${lot.id}">Update Lot</a></td>
-                                            <td><a href="/deleteLot?id=${lot.id}">Delete</a></td>
+                                            <td>
+                                            <div style="display: inline-block">
+                                            <a href="/updateLot?id=${lot.id}" style="margin-right: 10px;">Update Lot</a>
+                                            <a href="/deleteLot?id=${lot.id}">Delete</a>
+                                            </div>
+                                            </td>
                                         </tr>
 
                                 </table>

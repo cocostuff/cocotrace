@@ -269,7 +269,7 @@
                             class="hide-menu">Sales
                                 </span></a>
                     </li>
-                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sales-analytics"
                                                  aria-expanded="false"><i data-feather="bar-chart" class="feather-icon"></i><span
                             class="hide-menu">Analytics</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"

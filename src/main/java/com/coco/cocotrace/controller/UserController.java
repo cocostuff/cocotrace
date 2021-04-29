@@ -59,6 +59,22 @@ public class UserController {
         return mv;
     }
 
+    @RequestMapping(value="/sales-analytics")
+    public ModelAndView salesAnalytics(Principal principal) {
+        ModelAndView mv = new ModelAndView("sales-analytics.jsp");
+        User u = userService.findByUsername(principal.getName());
+        mv.addObject("user", u);
+        return mv;
+    }
+
+    @RequestMapping(value="/user-profile")
+    public ModelAndView userProfile(Principal principal) {
+        ModelAndView mv = new ModelAndView("profile.jsp");
+        User u = userService.findByUsername(principal.getName());
+        mv.addObject("user", u);
+        return mv;
+    }
+
     @RequestMapping(path = "/logout-success")
     public String logout() {
         return "logout.jsp";

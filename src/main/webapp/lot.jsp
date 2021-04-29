@@ -67,9 +67,9 @@
                     <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
                         </b>
                         <!--End Logo icon -->
                     </a>
@@ -339,8 +339,8 @@
                                             <th>Quantity</th>
                                             <th>Total Weight</th>
                                             <th>Sending Date</th>
+                                            <th>QR Id</th>
                                             <th>Actions</th>
-                                            <th> </th>
                                         </tr>
                                         <tr>
                                             <td>${lot.id}</td>
@@ -348,8 +348,13 @@
                                             <td>${lot.quantity}</td>
                                             <td>${lot.globalWeight}</td>
                                             <td>${lot.sendingDate}</td>
-                                            <td><a href="/updateLot?id=${lot.id}">Update Lot</a></td>
-                                            <td><a href="/deleteLot?id=${lot.id}">Delete</a></td>
+                                            <td>${lot.qrCodeId}</td>
+                                            <td>
+                                            <div style="display: inline-block">
+                                            <a href="/updateLot?id=${lot.id}" style="margin-right: 10px;">Update Lot</a>
+                                            <a href="/deleteLot?id=${lot.id}">Delete</a>
+                                            </div>
+                                            </td>
                                         </tr>
 
                                 </table>

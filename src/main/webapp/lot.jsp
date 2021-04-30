@@ -33,6 +33,62 @@
     <![endif]-->
 </head>
 
+<style>
+            .collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  padding-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
 
 <body>
 
@@ -67,9 +123,9 @@
                     <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
                         </b>
                         <!--End Logo icon -->
                     </a>
@@ -271,7 +327,7 @@
                             class="hide-menu">Sales
                                 </span></a>
                     </li>
-                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sales-analytics"
                                                  aria-expanded="false"><i data-feather="bar-chart" class="feather-icon"></i><span
                             class="hide-menu">Analytics</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
@@ -331,7 +387,30 @@
                         <div class="card-body">
                             <div class="table-responsive">
 
-                                    <img src="<c:url value="/images/${lot.qrCodeId}.png" />" />
+                            <div style="display: flex; flex: wrap;">
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="<c:url value="/images/${lot.qrCodeId}.png" />" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">QR Code</h4>
+                                        <p class="card-text">${lot.qrCodeId}</p>
+                                    </div>
+                                </div>
+                                <!-- Card -->
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="${lot.imageUrl}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Image of Lot</h4>
+                                        <p class="card-text">${lot.product.name}</p>
+                                    </div>
+                                </div>
+                                <!-- Card -->
+                            </div>
+                            </div>
                                     <table id="zero_config" class="table no-wrap">
                                         <tr>
                                             <th>Id</th>
@@ -340,7 +419,6 @@
                                             <th>Total Weight</th>
                                             <th>Sending Date</th>
                                             <th>Actions</th>
-                                            <th> </th>
                                         </tr>
                                         <tr>
                                             <td>${lot.id}</td>
@@ -348,11 +426,206 @@
                                             <td>${lot.quantity}</td>
                                             <td>${lot.globalWeight}</td>
                                             <td>${lot.sendingDate}</td>
-                                            <td><a href="/updateLot?id=${lot.id}">Update Lot</a></td>
-                                            <td><a href="/deleteLot?id=${lot.id}">Delete</a></td>
+                                            <td>
+                                            <div style="display: inline-block">
+                                            <a href="/updateLot?id=${lot.id}" style="margin-right: 10px;">Update Lot</a>
+                                            <a href="/deleteLot?id=${lot.id}">Delete</a>
+                                            </div>
+                                            </td>
                                         </tr>
 
                                 </table>
+
+                                <div class="container">
+                                    <!-- ============================================================== -->
+                                    <!-- Start Page Content -->
+                                    <!-- ============================================================== -->
+                                    <div class="row">
+                                        <!-- column -->
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <h1 class="card-title" align="center"><b>Organic Coconut Oil</b></h1>
+                                                <div class="row">
+                                                    <div class="column">
+                                                      <img src="https://images.squarespace-cdn.com/content/v1/5c1074accc8fed6a4251da8f/1584018403560-UR2PZW6K1C87J0DHNWCH/ke17ZwdGBToddI8pDm48kCdVBj3r2HsFKAh4Ms3KnMQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2yEoa3-OP9vPbL_illJ4-W0pcJZge7kW8cl3bGs6jbBtkOpdljO7Z-5qh0zg85Jnj/Coconut+Oil.jpg?format=750w" alt="Snow" style="width:100%">
+                                                    </div>
+                                                    <div class="column">
+                                                      <img src="https://images.squarespace-cdn.com/content/v1/5c1074accc8fed6a4251da8f/1584018470978-QZJI2FXC9NB8ENWIW53A/ke17ZwdGBToddI8pDm48kCdVBj3r2HsFKAh4Ms3KnMQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2yEoa3-OP9vPbL_illJ4-W0pcJZge7kW8cl3bGs6jbBtkOpdljO7Z-5qh0zg85Jnj/Extra+Virgin+Coconut+Oil.jpg?format=750w" alt="Forest" style="width:100%">
+                                                    </div>
+                                                    <div class="column">
+                                                      <img src="https://images.squarespace-cdn.com/content/v1/5c1074accc8fed6a4251da8f/1551438739319-6FEASYDYLPCYPRXVOHXN/ke17ZwdGBToddI8pDm48kCdVBj3r2HsFKAh4Ms3KnMQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2yEoa3-OP9vPbL_illJ4-W0pcJZge7kW8cl3bGs6jbBtkOpdljO7Z-5qh0zg85Jnj/oco-back1.jpg?format=500w" alt="Mountains" style="width:100%">
+                                                    </div>
+                                                  </div>                          
+                                                    <!---text part-->
+                                                    <button class="collapsible">Smoothly does it: all about coconut oil</button>
+                                                    <div class="content">
+                                                      <p>
+                                                       Check out our organic coconut oil products. It’s not oh-so-humble, but we promise we really do sell the best coconut oil available. We really care that you’re getting the good stuff, jam-packed with coconutty-goodness. So read on to find out why you should buy coconut oil, what the difference is between our Extra Virgin Coconut Oil and our Coconut Cooking Oil, and why you should choose Organic Coconut Oil from us.
+                                                     </p>
+                                                    </div>
+                    
+                                                    <button class="collapsible">What can I use coconut oil for?</button>
+                                                    <div class="content">
+                                                      <p>
+                                                        Coconut oil is a versatile little beasty. Yes, it’s a must-have in your kitchen cupboard, but it can be used for pets, skincare, cleaning and more.
+                                                     </p>
+                                                     <p>
+                                                        You’re probably familiar with the use of coconut oil for cooking. Coconut cooking oil is simply fabulous for using at high temperatures, as its already been organically refined and won’t smoke at low temperatures. It can also be used as an ingredient in baking or even a mayonnaise.
+                                                    </p>
+                                                    <p>
+                                                        Swot up on coconut oil benefits below, and you’ll know that it’s also incredible stuff to incorporate into your diet. What’s more, for vegetarians and vegans, coconut oil is an excellent alternative to solid fats in cooking, such as butter. It’ll also make a mean dark chocolate.
+                                                    </p>
+                                                    <p>
+                                                        Beyond its pride-of-place in the kitchen, organic coconut oil can be used as a moisturiser and light sun cream, it can help keep your hair shiny and healthy, work as an insect repellent when mixed with essential oils, serve as a deodorant and even buff up your favourite wooden table beautifully. It’s not just a superfood, it’s super stuff!
+                                                    </p>
+                                                    </div>
+                    
+                                                    <button class="collapsible">  What are the benefits of coconut oil?</button>
+                                                    <div class="content">
+                                                        <p>
+                                                            Most of you buying our coconut oils do so for cooking. Let’s look at just some of the coconut oil benefits crammed inside that jar.
+                                                        </p>
+                                                        <p>
+                                                            Coconut oil for cooking is bursting with benefits. These may include:
+                                                        </p>
+                                                        
+                                                        <ul>
+                                                            <li>   
+                                                                The fatty acids in coconut can give your ‘good’ cholesterol a boost, giving your heart a helping hand.
+                                                            </li>
+                                                            <li>
+                                                                The fats in coconut oil are primarily medium-chain triglycerides (MCTs). Some studies suggest these are used as immediate energy by your body as opposed to being stored. 
+                                                            </li>
+                                                            <li>    
+                                                                Certain studies suggest MCTs can be metabolised quickly by the body, which may make coconut oil responsible for being a fat-burning aid, as well as helping to reduce hunger.
+                                                            </li>
+                                                            <li>    
+                                                                Lauric acid in coconut oil has been shown to help your body kill off harmful bacteria, viruses and fungi.
+                                                            </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                    
+                                                    <button class="collapsible">Coconut Oil Terminology 101</button>
+                                                    <div class="content">
+                                                        <p>
+                                                            The difference between non-organic and organic coconut oil comes down to farming practice. We only sell organic coconut oil. This means that it has been produced using coconut trees which are grown without the use of chemicals.
+                                                        </p>
+                                                        <p>
+                                                            We sell our Coconut Cooking Oil and our Extra Virgin Coconut Oil. The difference here is the production process. Our Coconut Cooking Oil uses heat and filtration in its production process, itself making it ideal for high temperature cooking. The refinement process also means it has no coconut aroma.
+                                                        </p>
+                                                        <p>
+                                                            Our Extra Virgin Coconut Oil is raw and unrefined, and therefore retains more of the coconut flavour as well as more of the nutritional content of the raw coconut.
+                                                        </p>
+                                                    </div>
+                                                                                
+                                                    <button class="collapsible">How does our coconut oil make it to your jar?</button>
+                                                    <div class="content">
+                                                        <p>
+                                                            All of our coconut oil is produced in Sri Lanka, by an independent company with over 50 years of history in the coconut market.  They pay their workers a fair wage, follow meaningful environmental policies and all of their coconuts come from their own Sri Lankan plantations, so they know the origin of each batch. 
+                                                        </p>
+                                                        <p>
+                                                            The factory only uses organic farming and traditional production techniques to produce our Coconut Oil.  This way the highest amounts of natural nutrients make it to your jar. 
+                                                        </p>
+                                                        <p>
+                                                            Our farmers allow the coconuts to fully mature before using them to make oil. They use the flesh of the coconut (known as the meat, or kernel). You also get coconut milk from this part of the coconut.
+                                                        </p>
+                                                        <p>
+                                                            Our Coconut Cooking Oil is made using the dried meat.  Our Extra Virgin Coconut Oil is made using fresh, raw coconut meat. It’s taken from the coconut very soon after the coconut is opened. The oil is pressed out of the kernel. This tends to yield less oil than standard coconut oil production, hence it is more expensive.
+                                                        </p>
+                                                        
+                                                    </div>
+                                                                                  
+                                                    
+                                                    <table class="table no-wrap dataTable no-footer" role="grid" aria-describedby="zero_config_info">
+                                                        <thead>
+                                                            <tr role="row"><th>
+                                                                Nutrientional Facts
+                                                            </th>
+                                                            <th>
+                                                                
+                                                            </th>
+                                                        </thead>
+                                                        <tbody>
+                                                            
+                                                            <tr >
+                                                                <td>Calories</td>
+                                                                <td>120</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Total Fat</td>
+                                                                <td>14g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Saturated Fat</td>
+                                                                <td>12g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Trans Fat</td>
+                                                                <td>0g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Polyunsaturated Fat</td>
+                                                                <td>0g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Monounsaturated Fat</td>
+                                                                <td>1g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Cholestrol</td>
+                                                                <td>0g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Sodium</td>
+                                                                <td>0g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Carbogydrates</td>
+                                                                <td>0g</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Total Sugars</td>
+                                                                <td>Og</td>
+                                                                
+                                                            </tr>
+                                                            <tr >
+                                                                <td>Protein</td>
+                                                                <td>0g</td>
+                                                                
+                                                            </tr>
+                                                            
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- column -->
+                                        
+                                        
+                                        
+                                    </div>
+                                    <!-- ============================================================== -->
+                                    <!-- End PAge Content -->
+                                    <!-- ============================================================== -->
+                                    <!-- ============================================================== -->
+                                    <!-- Right sidebar -->
+                                    <!-- ============================================================== -->
+                                    <!-- .right-sidebar -->
+                                    <!-- ============================================================== -->
+                                    <!-- End Right sidebar -->
+                                    <!-- ============================================================== -->
+                                </div>
                             </div>
                         </div>
 

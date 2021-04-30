@@ -60,9 +60,9 @@
                     <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="https://lh5.googleusercontent.com/OW_AzSkBJg9IT_3-bQvkJAcWhDxzDV1qO5AbTSXGflrI4oObcOVCmhBuU9R-_3Ae4Xe9jAsw6T63Bw=w1366-h657" alt="homepage" class="dark-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
                             <!-- Light Logo icon -->
-                            <img src="https://lh5.googleusercontent.com/OW_AzSkBJg9IT_3-bQvkJAcWhDxzDV1qO5AbTSXGflrI4oObcOVCmhBuU9R-_3Ae4Xe9jAsw6T63Bw=w1366-h657" alt="homepage" class="light-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
                         </b>
                         <!--End Logo icon -->
                     </a>
@@ -323,6 +323,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form:form method="POST" modelAttribute="lot" action="/addLot">
+
+                                    <h5 class="card-subtitle">Image:</h5>
+                                    <div class="form-group mb-4">
+                                        <form:input class="form-control"  path="imageUrl"/>
+                                    </div>
 
                                         <h5 class="card-subtitle">Choose Product:</h5>
                                         <div class="form-group mb-4">

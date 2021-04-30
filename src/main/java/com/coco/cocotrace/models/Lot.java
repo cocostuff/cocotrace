@@ -23,6 +23,8 @@ public class Lot {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String imageUrl;
+
     private int quantity;
 
     private double globalWeight;

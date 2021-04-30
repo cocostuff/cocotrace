@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Cocotrace - A Product Traceability App</title>
+    <!-- Custom CSS -->
+    <link href="https://technext.github.io/adminmart/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+    <link href="https://technext.github.io/adminmart/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="https://technext.github.io/adminmart/dist/css/style.min.css" rel="stylesheet">
+    <link href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <!-- Collapible menu-->
+    <style>
+        .collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  padding-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+    </head>
+    
+    <body>
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="">
+            
+            <!-- Container   -->
+            <!-- ============================================================== -->
+            <div class="container">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <h1 class="card-title" align="center"><b>Organic Coconut Oil</b></h1>
+                            <div class="row">
+                                <div class="column">
+                                  <img src="https://images.squarespace-cdn.com/content/v1/5c1074accc8fed6a4251da8f/1584018403560-UR2PZW6K1C87J0DHNWCH/ke17ZwdGBToddI8pDm48kCdVBj3r2HsFKAh4Ms3KnMQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2yEoa3-OP9vPbL_illJ4-W0pcJZge7kW8cl3bGs6jbBtkOpdljO7Z-5qh0zg85Jnj/Coconut+Oil.jpg?format=750w" alt="Snow" style="width:100%">
+                                </div>
+                                <div class="column">
+                                  <img src="https://images.squarespace-cdn.com/content/v1/5c1074accc8fed6a4251da8f/1584018470978-QZJI2FXC9NB8ENWIW53A/ke17ZwdGBToddI8pDm48kCdVBj3r2HsFKAh4Ms3KnMQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2yEoa3-OP9vPbL_illJ4-W0pcJZge7kW8cl3bGs6jbBtkOpdljO7Z-5qh0zg85Jnj/Extra+Virgin+Coconut+Oil.jpg?format=750w" alt="Forest" style="width:100%">
+                                </div>
+                                <div class="column">
+                                  <img src="https://images.squarespace-cdn.com/content/v1/5c1074accc8fed6a4251da8f/1551438739319-6FEASYDYLPCYPRXVOHXN/ke17ZwdGBToddI8pDm48kCdVBj3r2HsFKAh4Ms3KnMQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2yEoa3-OP9vPbL_illJ4-W0pcJZge7kW8cl3bGs6jbBtkOpdljO7Z-5qh0zg85Jnj/oco-back1.jpg?format=500w" alt="Mountains" style="width:100%">
+                                </div>
+                              </div>                          
+                                <!---text part-->
+                                <button class="collapsible">Smoothly does it: all about coconut oil</button>
+                                <div class="content">
+                                  <p>
+                                   Check out our organic coconut oil products. It’s not oh-so-humble, but we promise we really do sell the best coconut oil available. We really care that you’re getting the good stuff, jam-packed with coconutty-goodness. So read on to find out why you should buy coconut oil, what the difference is between our Extra Virgin Coconut Oil and our Coconut Cooking Oil, and why you should choose Organic Coconut Oil from us.
+                                 </p>
+                                </div>
+
+                                <button class="collapsible">What can I use coconut oil for?</button>
+                                <div class="content">
+                                  <p>
+                                    Coconut oil is a versatile little beasty. Yes, it’s a must-have in your kitchen cupboard, but it can be used for pets, skincare, cleaning and more.
+                                 </p>
+                                 <p>
+                                    You’re probably familiar with the use of coconut oil for cooking. Coconut cooking oil is simply fabulous for using at high temperatures, as its already been organically refined and won’t smoke at low temperatures. It can also be used as an ingredient in baking or even a mayonnaise.
+                                </p>
+                                <p>
+                                    Swot up on coconut oil benefits below, and you’ll know that it’s also incredible stuff to incorporate into your diet. What’s more, for vegetarians and vegans, coconut oil is an excellent alternative to solid fats in cooking, such as butter. It’ll also make a mean dark chocolate.
+                                </p>
+                                <p>
+                                    Beyond its pride-of-place in the kitchen, organic coconut oil can be used as a moisturiser and light sun cream, it can help keep your hair shiny and healthy, work as an insect repellent when mixed with essential oils, serve as a deodorant and even buff up your favourite wooden table beautifully. It’s not just a superfood, it’s super stuff!
+                                </p>
+                                </div>
+
+                                <button class="collapsible">  What are the benefits of coconut oil?</button>
+                                <div class="content">
+                                    <p>
+                                        Most of you buying our coconut oils do so for cooking. Let’s look at just some of the coconut oil benefits crammed inside that jar.
+                                    </p>
+                                    <p>
+                                        Coconut oil for cooking is bursting with benefits. These may include:
+                                    </p>
+                                    
+                                    <ul>
+                                        <li>   
+                                            The fatty acids in coconut can give your ‘good’ cholesterol a boost, giving your heart a helping hand.
+                                        </li>
+                                        <li>
+                                            The fats in coconut oil are primarily medium-chain triglycerides (MCTs). Some studies suggest these are used as immediate energy by your body as opposed to being stored. 
+                                        </li>
+                                        <li>    
+                                            Certain studies suggest MCTs can be metabolised quickly by the body, which may make coconut oil responsible for being a fat-burning aid, as well as helping to reduce hunger.
+                                        </li>
+                                        <li>    
+                                            Lauric acid in coconut oil has been shown to help your body kill off harmful bacteria, viruses and fungi.
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+
+                                <button class="collapsible">Coconut Oil Terminology 101</button>
+                                <div class="content">
+                                    <p>
+                                        The difference between non-organic and organic coconut oil comes down to farming practice. We only sell organic coconut oil. This means that it has been produced using coconut trees which are grown without the use of chemicals.
+                                    </p>
+                                    <p>
+                                        We sell our Coconut Cooking Oil and our Extra Virgin Coconut Oil. The difference here is the production process. Our Coconut Cooking Oil uses heat and filtration in its production process, itself making it ideal for high temperature cooking. The refinement process also means it has no coconut aroma.
+                                    </p>
+                                    <p>
+                                        Our Extra Virgin Coconut Oil is raw and unrefined, and therefore retains more of the coconut flavour as well as more of the nutritional content of the raw coconut.
+                                    </p>
+                                </div>
+                                                            
+                                <button class="collapsible">How does our coconut oil make it to your jar?</button>
+                                <div class="content">
+                                    <p>
+                                        All of our coconut oil is produced in Sri Lanka, by an independent company with over 50 years of history in the coconut market.  They pay their workers a fair wage, follow meaningful environmental policies and all of their coconuts come from their own Sri Lankan plantations, so they know the origin of each batch. 
+                                    </p>
+                                    <p>
+                                        The factory only uses organic farming and traditional production techniques to produce our Coconut Oil.  This way the highest amounts of natural nutrients make it to your jar. 
+                                    </p>
+                                    <p>
+                                        Our farmers allow the coconuts to fully mature before using them to make oil. They use the flesh of the coconut (known as the meat, or kernel). You also get coconut milk from this part of the coconut.
+                                    </p>
+                                    <p>
+                                        Our Coconut Cooking Oil is made using the dried meat.  Our Extra Virgin Coconut Oil is made using fresh, raw coconut meat. It’s taken from the coconut very soon after the coconut is opened. The oil is pressed out of the kernel. This tends to yield less oil than standard coconut oil production, hence it is more expensive.
+                                    </p>
+                                    
+                                </div>
+                                                              
+                                
+                                <table class="table no-wrap dataTable no-footer" role="grid" aria-describedby="zero_config_info">
+                                    <thead>
+                                        <tr role="row"><th>
+                                            Nutrientional Facts
+                                        </th>
+                                        <th>
+                                            
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr >
+                                            <td>Calories</td>
+                                            <td>120</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Total Fat</td>
+                                            <td>14g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Saturated Fat</td>
+                                            <td>12g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Trans Fat</td>
+                                            <td>0g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Polyunsaturated Fat</td>
+                                            <td>0g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Monounsaturated Fat</td>
+                                            <td>1g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Cholestrol</td>
+                                            <td>0g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Sodium</td>
+                                            <td>0g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Carbogydrates</td>
+                                            <td>0g</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Total Sugars</td>
+                                            <td>Og</td>
+                                            
+                                        </tr>
+                                        <tr >
+                                            <td>Protein</td>
+                                            <td>0g</td>
+                                            
+                                        </tr>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- column -->
+                    
+                    
+                    
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="https://technext.github.io/adminmart/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="https://technext.github.io/adminmart/dist/js/app-style-switcher.js"></script>
+    <script src="https://technext.github.io/adminmart/dist/js/feather.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://technext.github.io/adminmart/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="https://technext.github.io/adminmart/dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/c3/d3.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/c3/c3.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="https://technext.github.io/adminmart/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="https://technext.github.io/adminmart/dist/js/pages/dashboards/dashboard1.min.js"></script>
+    
+    <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            items: 1
+        })
+    </script>
+    
+    <!--Collapsible js-->
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+
+</html>

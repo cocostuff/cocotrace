@@ -150,6 +150,20 @@
 			<artifactId>retrofit</artifactId>
 			<version>2.7.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-dialogflow -->
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-dialogflow</artifactId>
+			<version>v2-rev124-1.25.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/com.google.api.grpc/proto-google-cloud-dialogflow-v2beta1 -->
+		<dependency>
+			<groupId>com.google.api.grpc</groupId>
+			<artifactId>proto-google-cloud-dialogflow-v2beta1</artifactId>
+			<version>0.94.2</version>
+		</dependency>
 	</dependencies>
 <!--	<dependencyManagement>-->
 <!--		<dependencies>-->

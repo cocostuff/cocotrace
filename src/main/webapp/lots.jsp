@@ -65,9 +65,9 @@
                     <a href="/home">
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="dark-logo" width="186" height="auto"/>
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
+                            <img src="https://i.ibb.co/429gCcS/Cocotrace-logo.png" alt="homepage" class="light-logo" width="186" height="auto"/>
                         </b>
                         <!--End Logo icon -->
                     </a>
@@ -269,7 +269,7 @@
                             class="hide-menu">Sales
                                 </span></a>
                     </li>
-                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
+                    <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sales-analytics"
                                                  aria-expanded="false"><i data-feather="bar-chart" class="feather-icon"></i><span
                             class="hide-menu">Analytics</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"

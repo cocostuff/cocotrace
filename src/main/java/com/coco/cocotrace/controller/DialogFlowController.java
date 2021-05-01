@@ -18,7 +18,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sound.sampled.Line;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -50,9 +49,8 @@ public class DialogFlowController {
                     String qrCodeId = request.getQueryResult().getQueryText();
                     response = getLotById(qrCodeId);
                     break;
-                case "GetLotByQr - fallback":
-                    // TODO
-                    System.out.println("====== Intent: GetLotByQr - fallback =====");
+                case "GetLotByQr":
+                    System.out.println("====== Intent: GetLotByQr  =====");
                     response = sendLIFFUrl();
                     break;
                 default:
@@ -92,7 +90,7 @@ public class DialogFlowController {
     }
 
     private GoogleCloudDialogflowV2WebhookResponse sendLIFFUrl() {
-        final String LIFF_URL = "https://liff.line.me/1655946675-Ao4mBEWj";
+        final String LIFF_URL = System.getenv().get("LIFF_URL");
         GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
         response.setFulfillmentText("Please access advanced features such as Scanning QR on this link (Opens LINE Browser):" + LIFF_URL);
         return response;

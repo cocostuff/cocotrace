@@ -51,7 +51,8 @@ public class Product {
     private User user;
 
     @OneToMany(mappedBy = "product")
-    @JsonManagedReference
+//    @JsonManagedReference
+    @JsonBackReference
     private Set<Lot> lots;
 
     public void setUser(User user) {

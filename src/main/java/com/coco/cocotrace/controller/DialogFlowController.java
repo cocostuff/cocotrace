@@ -92,7 +92,7 @@ public class DialogFlowController {
     }
 
     private GoogleCloudDialogflowV2WebhookResponse sendLIFFUrl() {
-        final String LIFF_URL = "https://liff.line.me/1655945817-rwlqpdaM";
+        final String LIFF_URL = "https://liff.line.me/1655946675-Ao4mBEWj";
         GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
         response.setFulfillmentText("Please access advanced features such as Scanning QR on this link (Opens LINE Browser):" + LIFF_URL);
         return response;

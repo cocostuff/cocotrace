@@ -140,12 +140,14 @@ public class LotController {
     }
 
     // REST API for future chatbot usage
+    @CrossOrigin
     @ResponseBody
     @GetMapping("/api/v1/lot")
     public List<Lot> getAllLots() {
         return lotDao.findAll();
     }
 
+    @CrossOrigin
     @ResponseBody
     @GetMapping("/api/v1/lot/{id}")
     public Lot getLot(@PathVariable int id) {
@@ -153,6 +155,7 @@ public class LotController {
         return lot;
     }
 
+    @CrossOrigin
     @ResponseBody
     @GetMapping("/api/v1/lot/qr/{qrCodeId}")
     public Lot getLotByQrCode(@PathVariable String qrCodeId) {

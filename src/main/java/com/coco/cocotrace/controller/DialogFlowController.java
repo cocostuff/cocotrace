@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.sound.sampled.Line;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -48,6 +49,11 @@ public class DialogFlowController {
                     System.out.println("====== Intent: GetLot =====");
                     String qrCodeId = request.getQueryResult().getQueryText();
                     response = getLotById(qrCodeId);
+                    break;
+                case "GetLotByQr - fallback":
+                    // TODO
+                    System.out.println("====== Intent: GetLotByQr - fallback =====");
+                    System.out.println(requestStr);
                     break;
                 default:
                     break;
@@ -84,6 +90,46 @@ public class DialogFlowController {
         response.setFulfillmentText(lotDetails);
         return response;
     }
+
+//    @GetMapping(value = "/getLotByScanQR")
+//    public ResponseEntity<?> getLotByScanQRCode(@RequestParam(value="id") String qrCodeId) {
+//        GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
+//
+//        Lot lot = lotDao.findByQrCodeId(UUID.fromString(qrCodeId));
+//
+//        Calendar calendar = new GregorianCalendar();
+//        calendar.setTime(lot.getSendingDate());
+//
+//        int year = calendar.get(Calendar.YEAR);
+//        int month = calendar.get(Calendar.MONTH) + 1;
+//        int day = calendar.get(Calendar.DAY_OF_MONTH);
+//        String sendingDate = day + "/" + month + "/" + year;
+//
+//        String lotDetails = "This is the lot details for id "
+//                + qrCodeId + ". Product is:  "
+//                + lot.getProduct().getName() + ". Quantity in the lot: "
+//                + lot.getQuantity() + " units. Total weight is: "
+//                + lot.getGlobalWeight() + "kg. Product was sent on: "
+//                + sendingDate + ".";
+//
+//        System.out.println(lotDetails);
+//
+//
+//
+//        try {
+//            return new ResponseEntity<GoogleCloudDialogflowV2WebhookResponse>(response, HttpStatus.OK);
+//        }
+//        catch (Exception ex) {
+//            System.out.println("=============== Error ===============");
+//            return new ResponseEntity<Object>(ex.getMessage(),HttpStatus.BAD_REQUEST);
+//        }
+//
+//    }
+
+    /*@GetMapping(value = "/getLotByScanQR")
+    public String hello() {
+        return "Hello!";
+    }*/
 
    /* @PostMapping(value = "/getLotById")
     public FulfillmentText dialogFlowWebHookS(@RequestBody String requestStr, HttpServletRequest servletRequest) {

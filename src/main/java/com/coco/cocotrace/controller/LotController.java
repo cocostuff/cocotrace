@@ -142,13 +142,21 @@ public class LotController {
 
     @CrossOrigin
     @RequestMapping(value = "/redirectToWebOrLine", method = RequestMethod.GET)
-    public String redirectToWebOrLine(@RequestHeader("X-Custom-Header") String lineHeader, @RequestParam(value="id") int lotId, @RequestParam(value="qrId") int qrId) {
-        if (lineHeader == "Line") {
+    public String redirectToWebOrLine(
+            @RequestHeader(value = "X-Custom-Header", required = false) String lineHeader,
+            @RequestHeader(value = "User-Agent", required = false) String userAgent,
+            @RequestParam(value="id") String lotId,
+            @RequestParam(value="qrId") String qrId) {
+
+        System.out.println("User agent: " + userAgent);
+        System.out.println("X-Custom-Header: " + lineHeader);
+
+        if (lineHeader == null) {
+            System.out.println("===== Not Detected! Redirecting to website =====");
+            return "redirect:/lot?id=" + lotId;
+        } else {
             System.out.println("===== Line Header Detected! Redirecting to the right URL =====");
             return "redirect:/api/v1/lot/qr/" + qrId;
-        } else {
-            System.out.println("===== Line Header Detected! Redirecting to website =====");
-            return "redirect:/lot?id=" + lotId;
         }
     }
 

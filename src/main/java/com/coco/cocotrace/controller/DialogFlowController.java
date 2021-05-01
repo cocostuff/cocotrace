@@ -53,7 +53,7 @@ public class DialogFlowController {
                 case "GetLotByQr - fallback":
                     // TODO
                     System.out.println("====== Intent: GetLotByQr - fallback =====");
-                    System.out.println(requestStr);
+                    response = sendLIFFUrl();
                     break;
                 default:
                     break;
@@ -91,82 +91,13 @@ public class DialogFlowController {
         return response;
     }
 
-//    @GetMapping(value = "/getLotByScanQR")
-//    public ResponseEntity<?> getLotByScanQRCode(@RequestParam(value="id") String qrCodeId) {
-//        GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
-//
-//        Lot lot = lotDao.findByQrCodeId(UUID.fromString(qrCodeId));
-//
-//        Calendar calendar = new GregorianCalendar();
-//        calendar.setTime(lot.getSendingDate());
-//
-//        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH) + 1;
-//        int day = calendar.get(Calendar.DAY_OF_MONTH);
-//        String sendingDate = day + "/" + month + "/" + year;
-//
-//        String lotDetails = "This is the lot details for id "
-//                + qrCodeId + ". Product is:  "
-//                + lot.getProduct().getName() + ". Quantity in the lot: "
-//                + lot.getQuantity() + " units. Total weight is: "
-//                + lot.getGlobalWeight() + "kg. Product was sent on: "
-//                + sendingDate + ".";
-//
-//        System.out.println(lotDetails);
-//
-//
-//
-//        try {
-//            return new ResponseEntity<GoogleCloudDialogflowV2WebhookResponse>(response, HttpStatus.OK);
-//        }
-//        catch (Exception ex) {
-//            System.out.println("=============== Error ===============");
-//            return new ResponseEntity<Object>(ex.getMessage(),HttpStatus.BAD_REQUEST);
-//        }
-//
-//    }
+    private GoogleCloudDialogflowV2WebhookResponse sendLIFFUrl() {
+        final String LIFF_URL = "https://liff.line.me/1655945817-rwlqpdaM";
+        GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
+        response.setFulfillmentText("Please access advanced features such as Scanning QR on this link (Opens LINE Browser):" + LIFF_URL);
+        return response;
+    }
 
-    /*@GetMapping(value = "/getLotByScanQR")
-    public String hello() {
-        return "Hello!";
-    }*/
-
-   /* @PostMapping(value = "/getLotById")
-    public FulfillmentText dialogFlowWebHookS(@RequestBody String requestStr, HttpServletRequest servletRequest) {
-        try {
-            ObjectMapper jsonMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            DialogFlowResponse response = jsonMapper.readValue(requestStr, DialogFlowResponse.class);
-
-            String qrCodeId = response.getQueryResult().getQueryText();
-            Lot lot = lotDao.findByQrCodeId(UUID.fromString(qrCodeId));
-
-            WebhookResponse res = WebhookResponse.newBuilder().build();
-
-            Calendar calendar = new GregorianCalendar();
-            calendar.setTime(lot.getSendingDate());
-
-            int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH) + 1;
-            int day = calendar.get(Calendar.DAY_OF_MONTH);
-            String sendingDate = day + "/" + month + "/" + year;
-
-            String lotDetails = "This is the lot details for id "
-                    + qrCodeId + ". Product is:  "
-                    + lot.getProduct().getName() + ". Quantity in the lot: "
-                    + lot.getQuantity() + " units. Total weight is: "
-                    + lot.getGlobalWeight() + "kg. Product was sent on: "
-                    + sendingDate + ".";
-
-            FulfillmentText f = FulfillmentText.builder().fulfillmentText(lotDetails).build();
-
-            return f;
-
-        } catch (Exception ex) {
-            System.out.println(ex);
-            FulfillmentText fl = FulfillmentText.builder().fulfillmentText("Sorry, there is no lot associated to this ID!").build();
-            return fl;
-        }
-    }*/
 }
 
 

@@ -140,6 +140,18 @@ public class LotController {
         return "redirect:/lot?id=" + lot.getId();
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/redirectToWebOrLine", method = RequestMethod.GET)
+    public String redirectToWebOrLine(@RequestHeader("X-Custom-Header") String lineHeader, @RequestParam(value="id") int lotId, @RequestParam(value="qrId") int qrId) {
+        if (lineHeader == "Line") {
+            System.out.println("===== Line Header Detected! Redirecting to the right URL =====");
+            return "redirect:/api/v1/lot/qr/" + qrId;
+        } else {
+            System.out.println("===== Line Header Detected! Redirecting to website =====");
+            return "redirect:/lot?id=" + lotId;
+        }
+    }
+
     // REST API for future chatbot usage
     @CrossOrigin
     @ResponseBody

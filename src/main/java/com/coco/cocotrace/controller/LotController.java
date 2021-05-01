@@ -129,7 +129,7 @@ public class LotController {
 
         try {
             QRCodeGenerator.generateQRCodeImage(
-                    domain + "/lot?id="  + lot.getId(),
+                    domain + "/redirectToWebOrLine?id="+lot.getId()+"&qrId="+qrId,
                     400,
                     400,
                     QR_CODE_IMAGE_PATH + qrId + ".png");

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -128,7 +129,7 @@ public class LotController {
 
         try {
             QRCodeGenerator.generateQRCodeImage(
-                    domain + "/lot?id="  + lot.getId(),
+                    domain + "/redirectToWebOrLine?id="+lot.getId()+"&qrId="+qrId,
                     400,
                     400,
                     QR_CODE_IMAGE_PATH + qrId + ".png");
@@ -139,13 +140,35 @@ public class LotController {
         return "redirect:/lot?id=" + lot.getId();
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/redirectToWebOrLine", method = RequestMethod.GET)
+    public String redirectToWebOrLine(
+            @RequestHeader(value = "X-Custom-Header", required = false) String lineHeader,
+            @RequestHeader(value = "User-Agent", required = false) String userAgent,
+            @RequestParam(value="id") String lotId,
+            @RequestParam(value="qrId") String qrId) {
+
+        System.out.println("User agent: " + userAgent);
+        System.out.println("X-Custom-Header: " + lineHeader);
+
+        if (lineHeader == null) {
+            System.out.println("===== Not Detected! Redirecting to website =====");
+            return "redirect:/lot?id=" + lotId;
+        } else {
+            System.out.println("===== Line Header Detected! Redirecting to the right URL =====");
+            return "redirect:/api/v1/lot/qr/" + qrId;
+        }
+    }
+
     // REST API for future chatbot usage
+    @CrossOrigin
     @ResponseBody
     @GetMapping("/api/v1/lot")
     public List<Lot> getAllLots() {
         return lotDao.findAll();
     }
 
+    @CrossOrigin
     @ResponseBody
     @GetMapping("/api/v1/lot/{id}")
     public Lot getLot(@PathVariable int id) {
@@ -153,6 +176,7 @@ public class LotController {
         return lot;
     }
 
+    @CrossOrigin
     @ResponseBody
     @GetMapping("/api/v1/lot/qr/{qrCodeId}")
     public Lot getLotByQrCode(@PathVariable String qrCodeId) {

@@ -2,6 +2,7 @@ package com.coco.cocotrace.models;
 
 import com.coco.cocotrace.converter.LocalDateJpaConverter;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,7 +34,8 @@ public class Lot {
     private Date sendingDate;
 
     @ManyToOne(fetch= FetchType.EAGER)
-    @JsonBackReference
+//    @JsonBackReference
+    @JsonManagedReference
     private Product product;
 
     @ManyToOne(fetch=FetchType.EAGER)

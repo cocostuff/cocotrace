@@ -49,6 +49,10 @@ public class DialogFlowController {
                     String qrCodeId = request.getQueryResult().getQueryText();
                     response = getLotById(qrCodeId);
                     break;
+                case "GetLotByQr":
+                    System.out.println("====== Intent: GetLotByQr  =====");
+                    response = sendLIFFUrl();
+                    break;
                 default:
                     break;
             }
@@ -85,42 +89,13 @@ public class DialogFlowController {
         return response;
     }
 
-   /* @PostMapping(value = "/getLotById")
-    public FulfillmentText dialogFlowWebHookS(@RequestBody String requestStr, HttpServletRequest servletRequest) {
-        try {
-            ObjectMapper jsonMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            DialogFlowResponse response = jsonMapper.readValue(requestStr, DialogFlowResponse.class);
+    private GoogleCloudDialogflowV2WebhookResponse sendLIFFUrl() {
+        final String LIFF_URL = System.getenv().get("LIFF_URL");
+        GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
+        response.setFulfillmentText("Please access advanced features such as Scanning QR on this link (Opens LINE Browser):" + LIFF_URL);
+        return response;
+    }
 
-            String qrCodeId = response.getQueryResult().getQueryText();
-            Lot lot = lotDao.findByQrCodeId(UUID.fromString(qrCodeId));
-
-            WebhookResponse res = WebhookResponse.newBuilder().build();
-
-            Calendar calendar = new GregorianCalendar();
-            calendar.setTime(lot.getSendingDate());
-
-            int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH) + 1;
-            int day = calendar.get(Calendar.DAY_OF_MONTH);
-            String sendingDate = day + "/" + month + "/" + year;
-
-            String lotDetails = "This is the lot details for id "
-                    + qrCodeId + ". Product is:  "
-                    + lot.getProduct().getName() + ". Quantity in the lot: "
-                    + lot.getQuantity() + " units. Total weight is: "
-                    + lot.getGlobalWeight() + "kg. Product was sent on: "
-                    + sendingDate + ".";
-
-            FulfillmentText f = FulfillmentText.builder().fulfillmentText(lotDetails).build();
-
-            return f;
-
-        } catch (Exception ex) {
-            System.out.println(ex);
-            FulfillmentText fl = FulfillmentText.builder().fulfillmentText("Sorry, there is no lot associated to this ID!").build();
-            return fl;
-        }
-    }*/
 }
 
 

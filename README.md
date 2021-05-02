@@ -6,6 +6,9 @@
 1. [Team Members](#team-members)
 1. [About the project](#about-the-project)
 1. [PostgreSQL set up](#postgresql-set-up)
+1. [Running the app](#running-the-app)
+1. [Deploying to production on Heroku](#Deploying-to-production-on-Heroku)
+1. [Deploying the LIFF App](#deploying-the-liff-app)
 
 ## Team Members
 

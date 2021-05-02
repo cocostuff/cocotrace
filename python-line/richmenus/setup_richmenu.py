@@ -22,10 +22,10 @@ if __name__ == '__main__':
         chat_bar_text="Tap to open",
         areas=[
             RichMenuArea(bounds=RichMenuBounds(x=0, y=0, width=2450, height=840),
-                         action=URIAction(label='Go to line.me', uri='https://line.me')
+                         action=PostbackAction(label='QRScanner', data="action=qr")
                          ),
             RichMenuArea(bounds=RichMenuBounds(x=0, y=843, width=2450, height=840),
-                         action=PostbackAction(label='QRScanner', data="action=qr")
+                         action=MessageAction(label='Scan QR', text='Scan QR Code')
                          )
         ]
     )
